@@ -72,3 +72,9 @@ timepng
 
 # Libpng CI artifacts
 out/
+
+# Forge artifacts
+/local_settings.lua
+/debug
+/release
+/shipping
