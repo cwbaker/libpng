@@ -1,0 +1,32 @@
+
+for _, forge in forge:builds('cc.*') do
+    local forge = forge:inherit {
+        warning_level = 0;
+    };
+
+    forge:all {
+        forge:StaticLibrary '${lib}/libpng_${platform}_${architecture}' {
+            forge:Cc '${obj}/%1' {
+                defines = { 
+                    'PNG_NO_MMX_CODE';
+                    'PNG_ARM_NEON_OPT=0';
+                };
+                'png.c',
+                'pngerror.c',
+                'pngget.c',
+                'pngmem.c',
+                'pngpread.c',
+                'pngread.c',
+                'pngrio.c',
+                'pngrtran.c',
+                'pngrutil.c',
+                'pngset.c',
+                'pngtrans.c',
+                'pngwio.c',
+                'pngwrite.c',
+                'pngwtran.c',
+                'pngwutil.c'
+            };
+        };
+    };
+end
