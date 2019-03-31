@@ -1,0 +1,32 @@
+
+for _, cc in toolsets('^cc.*') do
+    local cc = cc:inherit {
+        warning_level = 0;
+        defines = { 
+            'PNG_NO_MMX_CODE';
+            'PNG_ARM_NEON_OPT=0';
+        };
+    };
+
+    cc:all {
+        cc:StaticLibrary '${lib}/libpng_${platform}_${architecture}' {
+            cc:Cc '${obj}/%1' {
+                'png.c',
+                'pngerror.c',
+                'pngget.c',
+                'pngmem.c',
+                'pngpread.c',
+                'pngread.c',
+                'pngrio.c',
+                'pngrtran.c',
+                'pngrutil.c',
+                'pngset.c',
+                'pngtrans.c',
+                'pngwio.c',
+                'pngwrite.c',
+                'pngwtran.c',
+                'pngwutil.c'
+            };
+        };
+    };
+end
