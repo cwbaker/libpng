@@ -3,22 +3,22 @@ variant = variant or 'debug';
 
 local forge = require 'forge.cc' {    
     identifier = 'cc_${platform}_${architecture}';
-    platform = forge:operating_system();
-    bin = forge:root( ('%s/bin'):format(variant) );
-    lib = forge:root( ('%s/lib'):format(variant) );
-    obj = forge:root( ('%s/obj'):format(variant) );
+    platform = operating_system();
+    bin = root( ('%s/bin'):format(variant) );
+    lib = root( ('%s/lib'):format(variant) );
+    obj = root( ('%s/obj'):format(variant) );
     include_directories = {
-        forge:root();
-        forge:root( 'zlib' );
+        root();
+        root( 'zlib' );
     };
     library_directories = {
-        forge:root( ('%s/lib'):format(variant) );
+        root( ('%s/lib'):format(variant) );
     };
     visual_studio = {
-        sln = forge:root( 'libpng.sln' );
+        sln = root( 'libpng.sln' );
     };
     xcode = {
-        xcodeproj = forge:root( 'libpng.xcodeproj' );
+        xcodeproj = root( 'libpng.xcodeproj' );
     };
 
     architecture = 'x86_64';
