@@ -10,6 +10,7 @@ for _, cc in toolsets('^cc.*') do
 
     cc:all {
         cc:StaticLibrary '${lib}/libpng_${platform}_${architecture}' {
+            '${lib}/zlib_${platform}_${architecture}';
             cc:Cc '${obj}/%1' {
                 'png.c',
                 'pngerror.c',
